@@ -5,6 +5,7 @@ import { SupportedChainId } from 'constants/chains'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import useTheme from 'hooks/useTheme'
 import { darken } from 'polished'
+import { FiFilter, FiSearch } from 'react-icons/fi'
 import { NavLink } from 'react-router-dom'
 import { Text } from 'rebass'
 import { useShowClaimPopup, useToggleSelfClaimModal } from 'state/application/hooks'
@@ -14,7 +15,7 @@ import { useDarkModeManager } from 'state/user/hooks'
 import { useNativeCurrencyBalances } from 'state/wallet/hooks'
 import styled from 'styled-components/macro'
 
-import { ReactComponent as Logo } from '../../assets/svg/logo.svg'
+import { ReactComponent as Logo } from '../../assets/svg/Logo.svg'
 import { ExternalLink, ThemedText } from '../../theme'
 import ClaimModal from '../claim/ClaimModal'
 import { CardNoise } from '../earn/styled'
@@ -41,6 +42,18 @@ const HeaderFrame = styled.div`
 `
 const SearchBoxContainer = styled.div`
   position: relative;
+  width: 30%;
+  hieght: 80%;
+  border: solid rgb(195, 197, 203);
+  border-radius: 6px;
+  height: 3rem; /* Equivalent to h-12 */
+  background-color: #232634; /* Equivalent to bg-[#232634] */
+  width: 35%; /* Equivalent to w-[35%] */
+  border-radius: 0.5rem; /* Equivalent to rounded-2xl */
+  border: 1px solid #313849; /* Equivalent to border border-[#313849] */
+  display: flex; /* Equivalent to flex */
+  align-items: center; /* Equivalent to items-center */
+  padding: 1rem; /* Equivalent to p-4 */
 `
 
 const SearchIcon = styled(FiSearch)`
@@ -66,6 +79,7 @@ const SearchInput = styled.input`
   border: none;
   border-radius: 4px;
   outline: none;
+  font-weight: Bold;
   width: 100%;
   background-color: ${({ theme }) => theme.bg1}; /* Use theme background color */
   color: ${({ theme }) => theme.text1}; /* Use theme text color */
@@ -75,6 +89,17 @@ const HeaderControls = styled.div`
   flex-direction: row;
   align-items: center;
   justify-self: flex-end;
+`
+const LogoWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const StyledLogo = styled(Logo)`
+  width: 50px; /* Adjust width as needed */
+  hieght: 50px; /* Adjust width as needed */
+  fill: ${({ theme }) => theme.text1}; /* Set fill color */
+  z-index: 999;
 `
 
 const HeaderElement = styled.div`
@@ -280,10 +305,10 @@ export default function Header() {
     <HeaderFrame>
       <ClaimModal />
       <Title href=".">
-        <UniIcon>
-          <Logo fill={darkMode ? white : black} width="24px" height="100%" title="logo" />
+        <LogoWrapper>
+          <StyledLogo />
           <HolidayOrnament />
-        </UniIcon>
+        </LogoWrapper>
       </Title>
       <HeaderLinks>
         <StyledNavLink id={`swap-nav-link`} to={'/swap'}>
@@ -313,13 +338,9 @@ export default function Header() {
         </StyledExternalLink>
       </HeaderLinks>
       <SearchBoxContainer>
-        <SearchIcon onClick={handleSearch} />
-        <SearchInput
-          type="text"
-          placeholder="Search..."
-          theme={theme} // Pass theme to styled component
-        />
-        <FilterIcon onClick={handleFilter} />
+        <SearchIcon />
+        <SearchInput type="text" placeholder="Search tokens for NFT Collections" />
+        <FilterIcon />
       </SearchBoxContainer>
       <HeaderControls>
         <HeaderElement>
