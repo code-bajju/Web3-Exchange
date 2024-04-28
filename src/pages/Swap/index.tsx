@@ -62,6 +62,11 @@ const AlertWrapper = styled.div`
   max-width: 460px;
   width: 100%;
 `
+const CustomText = styled.div`
+  font-size: 64px; /* Change the font size as needed */
+  text-align: center;
+  font-family: 'inter';
+`
 
 export default function Swap({ history }: RouteComponentProps) {
   const { account, chainId } = useActiveWeb3React()
@@ -390,6 +395,12 @@ export default function Swap({ history }: RouteComponentProps) {
 
   return (
     <>
+      <div>
+        <CustomText>
+          Swap anytime, <br />
+          anywhere.
+        </CustomText>
+      </div>
       <TokenWarningModal
         isOpen={importTokensNotInDefault.length > 0 && !dismissTokenWarning}
         tokens={importTokensNotInDefault}

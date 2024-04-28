@@ -88,7 +88,9 @@ export default function TokenButton({ value, collapsed, disabled, onClick }: Tok
               {value.symbol}
             </>
           ) : (
-            <Trans>Select a token</Trans>
+            <>
+              <Trans>Select a token</Trans>
+            </>
           )}
           <ChevronDown color={contentColor} strokeWidth={3} />
         </TokenButtonRow>
