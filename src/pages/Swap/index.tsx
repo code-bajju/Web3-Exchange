@@ -68,7 +68,7 @@ const CustomText = styled.div`
   font-family: 'inter';
 `
 
-export default function Swap({ history }: RouteComponentProps) {
+export default function Hero2({ history }: RouteComponentProps) {
   const { account, chainId } = useActiveWeb3React()
   const loadedUrlParams = useDefaultsFromURLSearch()
 
