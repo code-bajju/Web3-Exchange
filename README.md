@@ -1,4 +1,4 @@
-# Yarn Project: Web3 Decentralized Exchange DApp
+# Uniswap: Web3 Decentralized Exchange DApp
 
 ## Overview
 This project is a decentralized application (DApp) built on the Ethereum blockchain using Web3 technology. It facilitates decentralized exchange (DEX) functionality, allowing users to securely trade Ethereum-based tokens directly with each other without the need for a centralized authority.
